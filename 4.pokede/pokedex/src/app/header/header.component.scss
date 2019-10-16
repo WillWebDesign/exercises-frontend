@@ -1,0 +1,15 @@
+@import '../../styles.scss';
+
+.navbar {
+  background: $cherry;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: $cotton;
+  padding: 0;
+}
+
+.navbar-brand img {
+  width: 40px;
+}
