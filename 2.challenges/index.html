@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <title>challenges</title>
+  <link href="./main.css"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text">JS Challenges</h1>
+    <div>
+      <hr>
+      <h3 class="text">a.Crear una función que devuelva la siguiente cadena string al revés (sin usar el método reverse()):</h3>
+      <pre>
+        <code class="javascript hljs">
+          const stringTest = 'Lineru';
+        </code>
+      </pre>
+      <span>Solucion:</span>
+      <pre>
+        <code class="javascript hljs">
+          function reverseString(str) {
+            return str === ''
+              ? ''
+              : reverseString(str.substr(1)) + str.charAt(0);
+          }
+        </code>
+      </pre>
+      <span>Resultado:</span>
+      <div class="result">
+        <pre>
+          <code class="plaintext hljs" id="reverse-result">
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <h3 class="text">b. Ordenar el siguiente arreglo de números.</h3>
+      <pre>
+        <code class="javascript hljs">
+          const numbersTest = [ 2, 25, 4, 2, 3, 4, 7];
+        </code>
+      </pre>
+      <span>Solucion:</span>
+      <pre>
+        <code class="javascript hljs">
+          function orderList(list) {
+            return list.sort(function(a, b) {
+              return a > b ? 1 : a < b ? -1 : 0;
+            });
+          }
+        </code>
+      </pre>
+      <span>Resultado:</span>
+      <div class="result">
+        <pre>
+          <code class="plaintext hljs" id="order-list-result">
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <h3 class="text">c. Ordenar el siguiente array de objetos a partir del string contenido en la propiedad name.</h3>
+      <pre>
+        <code class="javascript hljs">
+          [
+            {
+              name: 'Homero Simpson',
+              age: 53,
+              profession: 'nuclear energy operator'
+            },
+            {
+              name: 'Moe Szyslak',
+              age: 57,
+              profession: 'barman'
+            },
+            {
+              name: 'Montgomery Burns',
+              age: 86,
+              profession: 'nuclear energy boss'
+            },
+            {
+              name: 'Apu Nahasapeemapetilon',
+              age: 45,
+              profession: 'owner operator'
+            }
+          ]
+        </code>
+      </pre>
+      <span>Solucion:</span>
+      <pre>
+        <code class="javascript hljs">
+          function orderObj(obj) {
+            return obj.sort(function(a, b) {
+              return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
+            });
+          }
+        </code>
+      </pre>
+      <span>Resultado:</span>
+      <div class="result">
+        <pre>
+          <code class="plaintext hljs" id="order-obj-result">
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <h3 class="text">d. Crear una función que tenga como argumento el siguiente string y que el retorno de esa función sea el mismo string en mayúscula (sin usar el método toUpperCase()).</h3>
+      <pre>
+        <code class="javascript hljs">
+          const stringTest = 'fintech';
+        </code>
+      </pre>
+      <span>Solucion:</span>
+      <pre>
+        <code class="javascript hljs">
+          function upperCaseString(str) {
+            return str === ''
+              ? ''
+              : str.charCodeAt(0) >= 97 && str.charCodeAt(0) <= 122
+              ? String.fromCharCode(str.charCodeAt(0) - 32) +
+                upperCaseString(str.substr(1))
+              : str.charAt(0) + upperCaseString(str.substr(1));
+          }
+        </code>
+      </pre>
+      <span>Resultado:</span>
+      <div class="result">
+        <pre>
+          <code class="plaintext hljs" id="uppercase-result">
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <h3 class="text">e. Muestre las tablas de multiplicar del 1 al 10 utilizando sólo un for.</h3>
+      <span>Solucion:</span>
+      <pre>
+        <code class="javascript hljs">
+          function multiplicationTables(limit) {
+            if (limit === 0) {
+              return '';
+            } else {
+              var t = '';
+              for (var index = 1; index <= 10; index++) {
+                t = `${t}
+                     ${limit}*${index} = ${index * limit}`;
+              }
+              return `${multiplicationTables(limit - 1)}
+                      ${t}`;
+            }
+          }
+        </code>
+      </pre>
+      <span>Resultado:</span>
+      <div class="result">
+        <pre>
+          <code class="plaintext hljs" id="mt-result">
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <h3 class="text">f. Función recursiva para obtener el factorial del siguiente número.</h3>
+      <pre>
+        <code class="javascript hljs">
+          const numberTest = 43;
+        </code>
+      </pre>
+      <span>Solucion:</span>
+      <pre>
+        <code class="javascript hljs">
+          function factorial(num) {
+            num = Math.abs(num);
+            if (num === 1) {
+              return 1;
+            } else {
+              return num * factorial(num - 1);
+            }
+          }
+        </code>
+      </pre>
+      <span>Resultado:</span>
+      <div class="result">
+        <pre>
+          <code class="plaintext hljs" id="factorial-result">
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+
+</html>
